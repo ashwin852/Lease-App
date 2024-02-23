@@ -82,13 +82,13 @@ public class MaterialController {
 		Optional<Material> retrievedMaterial = materialRepository.findById(id);
 		
 		if(retrievedMaterial.isPresent()) {
-			Material _material = retrievedMaterial.get();
-			_material.setName(material.getName());
-			_material.setPricePerDay(material.getPricePerDay());
-			_material.setQuantity(material.getQuantity());
-			_material.setRemaining(material.getRemaining());	
+			Material updatedMaterial = retrievedMaterial.get();
+			updatedMaterial.setName(material.getName());
+			updatedMaterial.setPricePerDay(material.getPricePerDay());
+			updatedMaterial.setQuantity(material.getQuantity());
+			updatedMaterial.setRemaining(material.getRemaining());	
 			
-			return new ResponseEntity<>(materialRepository.save(_material), HttpStatus.OK);
+			return new ResponseEntity<>(materialRepository.save(updatedMaterial), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}

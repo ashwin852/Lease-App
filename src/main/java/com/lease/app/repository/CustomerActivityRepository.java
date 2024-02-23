@@ -10,6 +10,6 @@ import com.lease.app.model.CustomerActivity;
 @Repository
 public interface CustomerActivityRepository extends JpaRepository<CustomerActivity, Long> {
 	
-	List<CustomerActivity> findBySite(String site);
+	List<CustomerActivity> findBySiteContaining(String site);
 	
 }
