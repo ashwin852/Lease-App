@@ -16,7 +16,7 @@ public class CustomerDayBilling {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long phoneNo;
+	private String phoneNo;
 	
 	private String site;
 	
@@ -30,7 +30,7 @@ public class CustomerDayBilling {
 	
 	
 
-	public CustomerDayBilling(Long phoneNo, String site, LocalDateTime date, String materialName, Integer itemsCount,
+	public CustomerDayBilling(String phoneNo, String site, LocalDateTime date, String materialName, Integer itemsCount,
 			Double amount) {
 		this.phoneNo = phoneNo;
 		this.site = site;
@@ -40,11 +40,11 @@ public class CustomerDayBilling {
 		this.amount = amount;
 	}
 
-	public Long getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(Long phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 

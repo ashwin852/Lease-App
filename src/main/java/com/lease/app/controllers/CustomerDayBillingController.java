@@ -27,7 +27,7 @@ public class CustomerDayBillingController {
 	private CustomerDayBillingRepository customerDayBillingRepo;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<CustomerDayBilling>> getAllCustomerDayBilling(@RequestParam(required = false) Long phoneNo){
+	public ResponseEntity<List<CustomerDayBilling>> getAllCustomerDayBilling(@RequestParam(required = false) String phoneNo){
 		
 		List<CustomerDayBilling> customerDayBillings = new ArrayList<CustomerDayBilling>();
 		

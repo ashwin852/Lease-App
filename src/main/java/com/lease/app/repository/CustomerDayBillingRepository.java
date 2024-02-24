@@ -8,6 +8,6 @@ import com.lease.app.model.CustomerDayBilling;
 @Repository
 public interface CustomerDayBillingRepository extends JpaRepository<CustomerDayBilling, Long>{
 	
-	List<CustomerDayBilling> findByPhoneNoContaining(Long phoneNo);
+	List<CustomerDayBilling> findByPhoneNoContaining(String phoneNo);
 	
 }
