@@ -47,7 +47,7 @@ public class CustomerActivityController {
 		}
 	}
 	
-	@GetMapping("/customer_activity/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<CustomerActivity> getCustomerActivityById(@PathVariable("id") long id){
 		try {
 			Optional<CustomerActivity> customerActivity = customerActivityRepo.findById(id);
@@ -107,7 +107,7 @@ public class CustomerActivityController {
 	}
 	
 	@DeleteMapping("/delete/all")
-	public ResponseEntity<HttpStatus> deleteCustomerActivityById(){
+	public ResponseEntity<HttpStatus> deleteAllCustomerActivity(){
 		try {
 			customerActivityRepo.deleteAll();
 			return new ResponseEntity<HttpStatus>(HttpStatus.OK);

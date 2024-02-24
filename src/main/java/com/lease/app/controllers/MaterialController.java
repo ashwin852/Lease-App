@@ -49,7 +49,7 @@ public class MaterialController {
 		}
 	}
 	
-	@GetMapping("/material/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Material> getMaterialById(@PathVariable("id") long id){
 		try {
 			Optional<Material> material = materialRepository.findById(id);
