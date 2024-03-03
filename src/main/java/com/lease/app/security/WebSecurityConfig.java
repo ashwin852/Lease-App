@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.lease.app.security.jwt.AuthEntryPointJwt;
 import com.lease.app.security.jwt.AuthTokenFilter;
-import com.lease.app.security.services.UserDetailsServiceImpl;
+import com.lease.app.services.UserDetailsServiceImpl;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

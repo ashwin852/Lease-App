@@ -1,4 +1,4 @@
-package com.lease.app.security.services;
+package com.lease.app.security;
 
 import java.util.Collection;
 import java.util.List;

@@ -18,18 +18,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lease.app.domain.request.LoginRequest;
+import com.lease.app.domain.request.SignupRequest;
+import com.lease.app.domain.response.JwtResponse;
+import com.lease.app.domain.response.MessageResponse;
 import com.lease.app.model.ERole;
 import com.lease.app.model.Role;
 import com.lease.app.model.User;
-import com.lease.app.payload.request.LoginRequest;
-import com.lease.app.payload.request.SignupRequest;
-import com.lease.app.payload.response.JwtResponse;
-import com.lease.app.payload.response.MessageResponse;
 import com.lease.app.repository.RoleRepository;
 import com.lease.app.repository.UserRepository;
+import com.lease.app.security.UserDetailsImpl;
 import com.lease.app.security.jwt.AuthEntryPointJwt;
 import com.lease.app.security.jwt.JwtUtils;
-import com.lease.app.security.services.UserDetailsImpl;
 
 import jakarta.validation.Valid;
 

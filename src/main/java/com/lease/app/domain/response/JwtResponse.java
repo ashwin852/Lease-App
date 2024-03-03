@@ -1,4 +1,4 @@
-package com.lease.app.payload.response;
+package com.lease.app.domain.response;
 
 import java.util.List;
 

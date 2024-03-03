@@ -1,4 +1,4 @@
-package com.lease.app.payload.request;
+package com.lease.app.domain.request;
 
 import java.util.Set;
 

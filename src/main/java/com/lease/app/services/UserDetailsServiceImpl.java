@@ -1,4 +1,4 @@
-package com.lease.app.security.services;
+package com.lease.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lease.app.model.User;
 import com.lease.app.repository.UserRepository;
+import com.lease.app.security.UserDetailsImpl;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
