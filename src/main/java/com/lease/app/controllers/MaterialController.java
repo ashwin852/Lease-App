@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ public class MaterialController {
 	private MaterialRepository materialRepository;
 	
 	@GetMapping("/all")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<List<Material>> getAllMaterials(@RequestParam(required = false) String name){
 		try {
 			List<Material> materials = new ArrayList<Material>();	
@@ -42,14 +44,15 @@ public class MaterialController {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 			
-			return new ResponseEntity<>(materials, HttpStatus.OK);
+			return new ResponseEntity<List<Material>>(materials, HttpStatus.OK);
 		}catch(Exception e) {
-			//Need to log the error
+			System.out.println(e);
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	@GetMapping("/{id}")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<Material> getMaterialById(@PathVariable("id") long id){
 		try {
 			Optional<Material> material = materialRepository.findById(id);
@@ -66,6 +69,7 @@ public class MaterialController {
 	}
 	
 	@PostMapping("/create")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<Material> createMaterial(@RequestBody Material material){
 		try {
 			Material newMaterial = materialRepository
@@ -77,6 +81,7 @@ public class MaterialController {
 	}
 	
 	@PutMapping("/update/{id}")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<Material> updateMaterial(@PathVariable("id") long id, @RequestBody Material material){
 		
 		Optional<Material> retrievedMaterial = materialRepository.findById(id);
@@ -95,6 +100,7 @@ public class MaterialController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<HttpStatus> deleteMaterial(@PathVariable("id") long id){
 		try {
 			materialRepository.deleteById(id);
@@ -106,6 +112,7 @@ public class MaterialController {
 	}
 	
 	@DeleteMapping("/delete/all")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<HttpStatus> deleteAllMaterials(){
 		try {
 			materialRepository.deleteAll();

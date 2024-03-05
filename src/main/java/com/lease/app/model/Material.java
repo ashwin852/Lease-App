@@ -50,6 +50,9 @@ public class Material {
 		this.remaining = remaining;
 	}
 	
+	public Material() {
+	}
+	
 	
 	
 }
